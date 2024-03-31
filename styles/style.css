@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  --ff-base: "Poppins", sans-serif;
+  --fw-light: 200;
+  --fw-base: 400;
+  --fw-bold: 600;
+  
+  --fs-base: 0.9375rem;
+  --fs-xl: 1.5rem;
+
+  --clr-red: hsl(0, 78%, 62%);
+  --clr-cyan: hsl(180, 62%, 55%);
+  --clr-orange: hsl(34, 97%, 64%);
+  --clr-blue: hsl(212, 86%, 64%);
+  --clr-dark-blue: hsl(234, 12%, 34%);
+  --clr-gray-blue: hsl(229, 6%, 66%);
+  --clr-light-gray: hsl(0, 0%, 98%);
+}
+
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: 1.5;
+}
+
+img, svg{
+  max-width: 100%;
+  display: block;
+}
+
+main{
+  font: var(--fw-base) var(--fs-base) var(--ff-base);
+  color: var(--clr-gray-blue);
+  display: grid;
+  place-items: center;
+  margin-block: 5.2rem;
+  min-height: 100vh;
+}
+
+.container{
+  display: grid;
+  gap: 4.5rem;
+  width: min(69.375rem, calc(100% - 65px));
+}
+
+.header{
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.header__title{
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-light);
+  color: var(--clr-dark-blue);
+  word-spacing: 1.5px;
+}
+
+.header__title span{
+  display: block;
+  font-weight: var(--fw-bold);
+}
+
+.header__desc{
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+  max-width: 60ch;
+  margin: auto;
+}
+
+.cards{
+  display: grid;
+  grid-template-areas:
+    'supervisor'
+    'teambuilder'
+    'karma'
+    'calculator';
+  gap: 1.7rem;
+}
+
+.card{
+  --_accent: var(--accent, var(--clr-cyan));
+
+  display: grid;
+  gap: 0.5rem;
+
+  box-shadow: 0 1rem 2rem .5rem #dedede;
+  padding: 1.4rem 1.6rem 1.6rem 1.7rem;
+  border-top: 3px solid var(--_accent);
+  border-radius: 4px;
+}
+
+.card:nth-child(1){
+  --accent: var(--clr-cyan);
+  grid-area: supervisor;
+}
+
+.card:nth-child(2){
+  --accent: var(--clr-red);
+  grid-area: teambuilder;
+}
+
+.card:nth-child(3){
+  --accent: var(--clr-orange);
+  grid-area: karma;
+}
+
+.card:nth-child(4){
+  --accent: var(--clr-blue);
+  grid-area: calculator;
+}
+
+.card__title{
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--clr-dark-blue);
+}
+
+.card__desc{
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+.card__icon{
+  width: 58px;
+  padding-top: 27px;
+  justify-self: end;
+}
+
+@media(min-width: 600px){
+  .header{
+    gap: 0.7rem;
+  }
+  .container{
+    gap: 4rem;
+  }
+  .cards{
+    grid-template-areas:
+      'e1 teambuilder e2'
+      'supervisor teambuilder calculator'
+      'supervisor karma calculator'
+      'e3 karma e4';
+      grid-auto-columns: 1fr;
+  }
+  .card{
+    padding: 1.8rem 2.2rem 2rem 1.8rem;
+  }
+  .card__icon{
+    width: 64px;
+    padding-top: 2rem;
+  }
+  .header__title {
+    font-size: 36px;
+  }
+  /*
+  .card:nth-child(1){
+    grid-area: 2 / 1 / 4 / 2;
+  }
+
+  .card:nth-child(2){
+    grid-area: 1 / 2 / 3 / 3;
+  }
+
+  .card:nth-child(3){
+    grid-area: 3 / 2 / 5 / 3;
+  }
+
+  .card:nth-child(4){
+    grid-area: 2 / 3 / 4 / 5;
+  }*/
+}
